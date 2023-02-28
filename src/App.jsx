@@ -20,7 +20,7 @@ function App() {
         <Route element={<Layout />}>
           <Route index path="/posts" element={<Posts posts={posts} />} />
           <Route path="/posts/new" element={<AddPost />} />
-          <Route path="/posts/:id" element={<ShowPost />}/>
+          <Route path="/posts/:id" element={<ShowPost posts={posts} />}/>
           <Route path="/posts/:id/edit" element={<EditPost posts={posts} />} />
           <Route path="*" element={<Error />} />
         </Route>

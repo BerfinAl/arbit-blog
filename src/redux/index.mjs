@@ -52,7 +52,6 @@ function editPostRequest() {
 }
 
 function editPostSuccess(editedPost) {
-  console.log(editedPost);
   return {
     type: "EDIT_POST_SUCCESS",
     payload: editedPost,
@@ -112,7 +111,7 @@ function reducer(state = initialState, action) {
       return {
         loading: false,
         posts: [action.payload, ...state.posts],
-        error: ""
+        error: "",
       };
     case "ADD_POST_FAILURE":
       return {
@@ -134,7 +133,7 @@ function reducer(state = initialState, action) {
             (post) => Number(action.payload.id) !== post.id
           ),
         ],
-        error: ""
+        error: "",
       };
     case "EDIT_POST_FAILURE":
       return {
@@ -153,7 +152,7 @@ function reducer(state = initialState, action) {
         posts: [
           ...state.posts.filter((post) => post.id !== Number(action.payload)),
         ],
-        error: ""
+        error: "",
       };
     case "DELETE_POST_FAILURE":
       return {
@@ -180,9 +179,9 @@ function fetchPosts() {
     fetch(api)
       .then((res) => res.json())
       .then(
-        (data) => dispatch(fetchPostsSuccess(data)),
-        (error) => dispatch(fetchPostsFailure(error.message))
-      );
+        (data) => dispatch(fetchPostsSuccess(data))
+        
+      ).catch((error) => dispatch(fetchPostsFailure(error.message)))
   };
 }
 
@@ -210,7 +209,7 @@ export function handleEdit(e, id, title, body) {
     fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title, body, id, userId: 1 }),
+      body: JSON.stringify({ userId: 1, id, title, body }),
     })
       .then((res) => res.json())
       .then(

@@ -14,6 +14,7 @@ export default function EditPost({ posts }) {
   const dispatch = useDispatch();
 
   const currentPost = posts.find((post) => post.id === Number(id));
+
   useEffect(() => {
     currentPost && (setTitle(currentPost.title), setBody(currentPost.body));
   }, []);

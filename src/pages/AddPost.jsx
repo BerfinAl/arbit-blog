@@ -27,7 +27,6 @@ export default function AddPost() {
               viewBox="0 0 16 16"
             >
               <path
-                fill-rule="evenodd"
                 d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
               />
             </svg>
@@ -65,7 +64,7 @@ export default function AddPost() {
         </label>
         <button
           type="submit"
-          className="bg-blue-600 hover:bg-blue-800 text-white font-semibold text-xl py-2 px-10 self-end border-b-4 border-blue-800 hover:border-blue-900 rounded transition-all"
+          className="bg-blue-600 hover:bg-blue-800 text-white font-semibold lg:text-xl py-2 px-4 rounded-lg w-fit self-end transition-all"
         >
           Add Post
         </button>
